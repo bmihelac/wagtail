@@ -16,6 +16,7 @@ import { ExpandingFormset } from '../ExpandingFormset';
  */
 export class InlinePanel extends ExpandingFormset {
   constructor(opts) {
+    console.log(opts)
     super(opts.formsetPrefix, opts);
     this.formsElt = $('#' + opts.formsetPrefix + '-FORMS');
 
@@ -168,6 +169,8 @@ export class InlinePanel extends ExpandingFormset {
   updateChildCount() {
     const forms = this.formsElt.children(':not(.deleted)');
     forms.each(function updateCountState(i) {
+      //$('[data-panel-heading-text]', this).first().text((new Date()).getMilliseconds());
+      $('[data-panel-heading-text]', this).first().attr("data-panel-heading-text", (new Date()).getMilliseconds());
       $('[data-inline-panel-child-count]', this)
         .first()
         .text(` ${i + 1}`);

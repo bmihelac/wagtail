@@ -88,6 +88,7 @@ class InlinePanel(Panel):
             super().__init__(**kwargs)
 
             self.label = self.panel.label
+            self.label = "!!! {day}"
 
             if self.form is None:
                 return
